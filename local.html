@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta charset="utf-8">
+    <title>欢迎参加互动</title>
+</head>
+
+<body>
+    <script  type="text/javascript">
+    (function() {
+        var date= new Date();
+        if(!localStorage.getItem('time')){
+               localStorage.setItem("time", date);
+              alert(date);
+        }else{
+             var msg = localStorage.getItem('time')
+             alert(msg);
+        }
+    })();
+    </script>
+</body>
+
+</html>
+<!--     function setCookie(c_name, value, expiredays) {
+        var exdate = new Date()
+        exdate.setDate(exdate.getDate() + expiredays)
+        document.cookie = c_name + "=" + escape(value) +
+        ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString())
+        console.log(document.cookie);
+    }
+ -->

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta charset="utf-8">
+    <title>欢迎参加互动</title>
+</head>
+
+<body>
+    <div style="display: none;">
+    </div>
+    <script type="text/javascript">
+    (function() {
+        var url = window.location.search;
+        var parameter = url.substring(1).split("&");
+        var code = "";
+        var appId = "fd1f516e8be279469d0e9df5df4c7c00";
+        var url = {
+            appidUrl: "http://192.168.10.14:1235/wx/user/getUserInfo?", //获得app地址
+            activeUrl: "http://192.168.10.14:1235/wx/user/getUserInfo?", //获得活动信息地址
+            prizeUrl: "http://localhost/wexinSudu/json.txt"
+        };
+        for (var ii = 0, length = parameter.length; ii < length; ii++) {
+            var aItem = parameter[ii].split("=");
+            switch (aItem[0]) {
+                case "code":
+                    code = aItem[1];
+                    break;
+            }
+        }
+        window.location.href = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxd1dc60a5653dc3b4&secret=d730fad976f9f4609f78e8b5da8dcc8a&code="+code+"&grant_type=authorization_code&redirect_uri=http://test.hs00.cn/WeDay.html";
+    })();
+    </script>
+</body>
+
+</html>
+<!--     function setCookie(c_name, value, expiredays) {
+        var exdate = new Date()
+        exdate.setDate(exdate.getDate() + expiredays)
+        document.cookie = c_name + "=" + escape(value) +
+        ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString())
+        console.log(document.cookie);
+    }
+ -->
